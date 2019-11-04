@@ -344,7 +344,7 @@ if __name__=="__main__":
     Name=input()
     print("Age:")
     Age=input()
-    while(1):
+    while(True):
         try:
             Age=int(Age)
             break
@@ -360,7 +360,7 @@ if __name__=="__main__":
     openDiseaseList(diseaseName)
 
     engine=generateFacts()
-    while(1):
+    while(True):
         engine.reset()
         engine.run()
         continueAsk=input("Want to diagnose another disease?")
