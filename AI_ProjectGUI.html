@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+
+</head>
+
+<body>
+
+<div id='form1'>
+	<form id="for1">
+	<center>
+		<h1>Disease Diagnosis Expert System</h1><br><br>
+		<h3>Name:<br><input id="name" type="text" name="nm" required><br><br>
+		Age:<br><input id="age" type="number" name="age" required><br><br></h3>
+		<p>
+				
+			<input type="button" value="Next" name="em" onclick="page1()">		
+			<input type="reset" value="Reset" value="Reset" name="Reset">
+		</p>
+		<img src="disease.jpg" >
+	</center>
+</form>
+</div>
+
+<div id='form2'>
+	<form id="for2">
+		<center>
+		<h1> Please enter the following questions </h1><br><br>
+		Are you feeling headache:<br>
+			<input id="headacheY" type="radio" name="head" value="Yes" > Yes <br>
+			<input id="headacheN" type="radio" name="head" value="No" checked> No <br><br>
+			
+		Are you feeling backpain:<br>
+			<input id="backpainY" type="radio" name="back" value="Yes" > Yes <br>
+			<input id="backpainN" type="radio" name="back" value="No" checked> No <br> <br>
+	
+		Are you feeling chestPain:<br>
+			<input id="chestpainY" type="radio" name="chest" value="Yes" > Yes <br>
+			<input id="chestpainN" type="radio" name="chest" value="No" checked> No <br> <br>	
+		Are you feeling Cough:<br>
+			<input id="coughY" type="radio" name="cough" value="Yes" > Yes <br>
+			<input id="coughN" type="radio" name="cough" value="No" checked> No <br> <br>
+		Are you feeling like Fainting:<br>
+			<input id="faintingY" type="radio" name="fainting" value="Yes" > Yes <br>
+			<input id="faintingN" type="radio" name="fainting" value="No" checked> No <br> <br>
+		Are you feeling sore throat:<br>
+			<input id="sorethroatY" type="radio" name="sorethroat" value="Yes" > Yes <br>
+			<input id="sorethroatN" type="radio" name="sorethroat" value="No" checked> No <br> <br>
+		<p>
+			<input type="button" value="Next" onclick="page2()">
+			<input type="reset" value="Reset" name="Reset">
+			<input type="button" value="GoBack" onclick="functionality0()">
+		</p>
+		</center>
+</form>
+</div>
+
+<div id='form3'>
+	<form id="for3">
+		<center><h1> Please enter the following questions </h1><br><br>
+		Are you feeling fatigue:<br>
+			<input id="fatigueY" type="radio" name="fatigue" value="Yes" > Yes <br>
+			<input id="fatigueN" type="radio" name="fatigue" value="No" checked> No <br><br>
+		Are you feeling restlessness:<br>
+			<input id="restlessnessY" type="radio" name="restlessness" value="Yes" > Yes <br>
+			<input id="restlessnessN" type="radio" name="restlessness" value="No" checked> No <br> <br>
+		Are you feeling low body temperature:<br>
+			<input id="lowbodytemperatureY" type="radio" name="lowbodytemperature" value="Yes" > Yes <br>
+			<input id="lowbodytemperatureN" type="radio" name="lowbodytemperature" value="No" checked> No <br> <br>
+		Are you feeling Fever:<br>
+			<input id="feverY" type="radio" name="Fever" value="Yes" > Yes <br>
+			<input id="feverN" type="radio" name="Fever" value="No" checked> No <br> <br>
+		Are you feeling like Sunken Eyes:<br>
+			<input id="sunkeneyesY" type="radio" name="sunkeneyes" value="Yes" > Yes <br>
+			<input id="sunkeneyesN" type="radio" name="sunkeneyes" value="No" checked> No <br> <br>
+		Are you feeling Nausea:<br>
+			<input id="nauseaY" type="radio" name="nausea" value="Yes" > Yes <br>
+			<input id="nauseaN" type="radio" name="nausea" value="No" checked> No <br> <br>
+		Are you feeling Blurred Vision:<br>
+			<input id="blurredvisionY" type="radio" name="blurredvision" value="Yes" > Yes <br>
+			<input id="blurredvisionN" type="radio" name="blurredvision" value="No" checked> No <br> <br>
+		Are you feeling Hallucination:<br>
+			<input id="hallucinationY" type="radio" name="hallucination" value="Yes" > Yes <br>
+			<input id="hallucinationN" type="radio" name="hallucination" value="No" checked> No <br> <br>
+		<p>
+			<input type="button" value="Next" onclick="functionality2()">
+			<input type="reset" value="Reset" name="Reset">
+			<input type="button" value="GoBack" onclick="functionality1()">
+		</p>
+		</center>
+</form>
+</div>
+
+
+
+</body>
+<script src="check.js" type="text/javascript"></script>
+
+<script>
+async function page1()
+{
+	try{
+	let a=await checkLength(document.getElementById('name').value,3,15);
+	let b=await document.getElementById('age').value;
+	if(a && b)
+	{
+		functionality1();
+	}
+	}catch(err)
+	{
+		window.alert('Please enter Correct Information');
+	}		
+}
+
+async function page2()
+{
+	try
+	{
+		functionality3();
+	}catch(err)
+	{
+		window.alert('Please enter Correct Information');
+	}
+}
+
+</script>
+
+<script>
+	
+	async function functionality0()
+	{
+		document.getElementById('form1').style.display="block";
+    document.getElementById('form2').style.display = "none";
+    document.getElementById('form3').style.display = "none";
+	}
+	functionality0();
+	async function functionality1()
+	{
+			document.getElementById('form1').style.display = "none";
+
+            document.getElementById('form2').style.display = "block";
+
+            document.getElementById('form3').style.display = "none";
+	}
+	async function functionality3()
+	{
+		document.getElementById('form1').style.display = "none";
+
+            document.getElementById('form2').style.display = "none";
+
+            document.getElementById('form3').style.display = "block";
+	}
+	async function functionality2()
+		{
+			document.getElementById('form1').style.display = "none";
+
+            document.getElementById('form2').style.display = "none";
+            document.getElementById('form3').style.display = "none";
+
+        let n=document.getElementById('name').value;
+		let e=document.getElementById('age').value;
+		
+		let headache="";
+		if(document.getElementById('headacheY').checked)
+		headache+=document.getElementById('headacheY').value;
+		else if(document.getElementById('headacheN').checked)
+		headache+=document.getElementById('headacheN').value;
+		
+		
+	
+		document.write("Name :"+n);
+		document.write("<br>");
+		document.write("Age :"+e);
+		document.write("<br>");
+		document.write("Headache :"+headache);
+		document.write("<br>");
+		
+		}
+	</script>
+</html>
+
